@@ -1,0 +1,10 @@
+Fil til databaseimport: database.sql
+
+Kontrolpanel: http://www.perterslyst.com/panel
+
+Registrering af bruger: http://www.peterslyst.com/registration.html (Husk at slette registration.html efter registrering)
+Ved ny brugerregistrering, uploades registration.html igen.
+
+Ved spørgsmål: bare ring på 42465345.
+
+ -Carsten Thuesen

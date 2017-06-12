@@ -1,0 +1,49 @@
+/* 
+    Document   : products
+    Created on : 17-06-2012, 10:30:47
+    Author     : jhummel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#products {
+    clear: both;
+    width: 920px;
+    margin: 0px auto;
+    padding: 20px 0;
+}
+
+#productDetail {
+    margin: 20px 0;
+}
+
+#productDetail ul {
+    margin: 10px 0;
+}
+
+#productMedia ul {
+    float: left;
+    width: 60%;
+}
+
+#productMedia ul:first-child {
+    width: 40%;
+}
+
+#productPDFPreview {
+    height: 250px;
+    width: 400px;
+}
+
+.progress { position:relative; width:100%; border: 1px solid #ddd; padding: 1px; border-radius: 3px; clear: both;}
+.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+
+input[type=input] { 
+    width: 300px; 
+} 

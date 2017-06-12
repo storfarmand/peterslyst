@@ -1,0 +1,27 @@
+.sales {
+    clear: both;
+    margin: 0px 10px;
+    padding-top: 5px;
+}
+
+.sales div {
+    margin-top: 20px;
+}
+
+.sales div *, .sales .button.byt-logo {
+    margin-top: 10px;
+}
+
+.sales .options-wrapper {
+    display: block;
+}
+ 
+.sales .button.save {
+    margin-top: 20px;
+}
+
+#itemPDFPreview {
+    display: block;
+    height: 250px;
+    width: 400px;
+}

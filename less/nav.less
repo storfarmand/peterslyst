@@ -1,0 +1,186 @@
+.nav-wrapper {
+    position: relative;
+    z-index: 20000;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: @grid-gutter-width;
+    a {
+        display: block;
+        width: 230px;
+        height: 180px;
+        text-indent: 101%;
+        overflow: hidden;
+        white-space: nowrap;    
+        background: url('../gfx/logo-hanging.png') no-repeat 0px 20px,
+                    url('../gfx/chain.png') no-repeat 55px 0px,
+                    url('../gfx/chain.png') no-repeat 160px 0px;
+        ;            
+    }
+}
+
+.mobile-logo {
+    padding-top: @grid-gutter-width;
+    margin-left: @grid-gutter-width / 2;
+    a {
+        display: block;
+        width: 34px;
+        height: 34px;
+        text-indent: 101%;
+        overflow: hidden;
+        white-space: nowrap;    
+        background: url('../gfx/home.png') no-repeat 0px 0px;
+    }
+}
+
+nav {
+    position: relative;
+    &.primary {
+        height: 160px;
+        font-family: RobotoCondensed-Regular;
+    }
+
+    & > ul {
+        list-style-type: none;
+        position: absolute;
+        left: 220px;
+        top: 130px;
+        margin: 0;
+    }
+    li {
+        display: inline-block;
+        position: relative;
+        margin-left: 20px;
+        border-radius: 5px;
+        
+        &:hover, &.active {
+            background-color: @color-gray;
+        }
+        a { 
+            text-transform: uppercase;
+            font-size: 18px;
+            padding: 2px 10px;
+            white-space: nowrap;
+        }
+        &:first-child a {
+            margin-left: 0;
+        }
+       
+        & li {
+            margin-left: 0;
+            display: block;
+        }
+    }
+    a, a:hover, a:link, a:visited {
+        text-decoration: none;
+        color: #454545;
+    }
+
+}
+
+.navbar-toggle {
+
+    border-color: @color-gray;
+    background-color: @color-gray;
+
+    .icon-bar {
+        background-color: darken(@color-gray, 20%);
+    }
+
+    &:hover, &:focus {
+        background-color: darken(@color-gray, 20%);
+        .icon-bar {
+            background-color: lighten(@color-gray, 20%);
+        }
+    }
+}
+
+               
+@media (min-width: @screen-sm) {
+    nav li { 
+        & > ul {
+            display: none;
+            background-color: @color-gray-with-alpha;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        &:hover > ul {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+    }
+}
+         
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+    nav {
+        ul {
+            top: 30px;
+            left: auto;
+            right: 0;
+        }
+        li {
+            display: block;
+            &:hover > ul {
+                display: block;
+                top: 0;
+                left: auto;
+                right: 98%;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: @screen-xs-max) {
+    .navbar-toggle {
+        display: block;
+    }
+    nav { 
+        &.primary {
+            position: absolute;
+            top: 50px;
+            left: 100%;
+            height: auto;
+        } 
+        ul {
+            position: relative;
+            left: 0;
+            top: 0;
+            margin-left: 5%;
+            background-color: lighten(@color-gray, 10%);
+            border-radius: 5px;
+            transition: all 1s;
+            ul {
+                margin-left: 0;
+                background-color: transparent;
+            }
+            &.show {
+                left: -105%;
+            }
+        }
+        li {
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            li a {
+                padding-left: 20px;
+            }
+            &:hover li, &.active li {
+                background-color: lighten(@color-gray, 10%);
+                &:hover , &.active {
+                    background-color: @color-gray;
+                }
+            }
+        }
+        a {
+            display: block;
+            &:hover , &.active {
+                background-color: @color-gray;
+            }
+        }
+    }
+}

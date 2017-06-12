@@ -1,0 +1,67 @@
+.template-media {
+    > section:first-of-type {
+        margin-top: 20px;
+    }
+    article {
+        & > div {
+            height: 430px;
+            img {
+                width: 100%;
+                margin-bottom: @grid-gutter-width;
+            }
+        }
+        .chalkboard {
+            height: 172px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+                font-size: 30px;
+                text-align: center;
+                line-height: 26px;
+            }
+        }
+    }
+    &.page-udlejning {
+        article {
+            & > div {
+                height: 245px;
+            }
+        }
+    }
+}
+
+@media (max-width: @screen-md-max) {
+    .template-media {
+        article {
+             & > div {
+                height: 470px;
+            }
+            .chalkboard {
+                height: 260px;
+                p {
+                    font-size: 24px;
+                }
+            }
+        }
+        
+    }
+}
+@media (max-width: @screen-xs-max) {
+    .template-media {
+            article {
+                & > div {
+                    .chalkboard {
+                        display: none;
+                    }
+                    &.infobox {
+                        max-height: initial;
+                        > .col-xs-10 {
+                            float: none;
+                        }
+                    }
+                }
+            }
+        }
+}

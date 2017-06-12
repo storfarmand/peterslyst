@@ -1,0 +1,438 @@
+ol, ul { list-style-type: none; }
+
+input.btn {
+    color: #050;
+    height: 17px;
+    font: bold 8px Verdana, sans-serif;
+    background-color: #fed;
+    margin: 5px 80px 5px;
+}
+
+img {
+    border: none;
+}
+
+a {
+    outline: 0;
+}
+
+#user_info {
+}
+
+#center_container {
+    border: 1px solid #dddddd;
+    border-top-width: 0;
+    border-radius: 4px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    position: relative;
+    min-height: 500px;;
+}
+
+#left_sidebar {
+    margin: 10px;
+    margin-right: 20px;
+    float: left;
+    width: 200px;
+}
+
+#content {
+    margin: 10px;
+    float: left;
+    width: 500px;
+}
+
+#login {
+    top: 10px;
+    left: 10px;
+    border: 1px solid #778;
+    background-color: #FAFAD2;
+    -moz-border-radius: 20px ;
+    -webkit-border-radius: 20px ;
+    border-radius: 20px ;
+}
+
+#enews {
+    bottom: 10px;
+    left: 10px;
+    margin-top: 20px;
+    border: 1px solid #778;
+    background-color: #FAFAD2;
+    -moz-border-radius: 20px ;
+    -webkit-border-radius: 20px ;
+    border-radius: 20px ;
+}
+
+/* Login Form */
+#frm_login {
+    font: normal 12px Verdana, sans-serif;
+    margin: 0;
+}
+
+#frm_login ul {
+    padding-bottom: 5px;
+}
+
+#frm_login ul:first-child {
+    margin-top: 20px;
+}
+
+#frm_login li {
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+#frm_login li:first-child {
+    width: 70px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* End Login Form */
+
+/* Enews Form */
+#frm_enews {
+    font: normal 12px Verdana, sans-serif;
+    margin: 0px;
+}
+
+#frm_enews ul {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#frm_enews ul:first-child {
+    padding-top: 5px;
+}
+
+#frm_enews li {
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+#frm_enews li:first-child {
+    width: 70px;
+    text-align: right;
+    padding-top: 20px;
+}
+
+/* End Enews Form */
+
+/* Contact Form */
+#frm_contact {
+    font: normal 12px Verdana, sans-serif;
+    margin: 0px;
+}
+
+#frm_contact fieldset {
+    padding-top: 5px;
+    margin-bottom: 5px;
+   -moz-border-radius: 10px ;
+   -webkit-border-radius: 10px ;
+   border-radius: 10px ;
+}
+
+#frm_contact legend {
+    font: bold 12px Verdana, sans-serif;
+    margin-left: 120px;
+}
+
+#frm_contact select {
+    margin-top: 5px;
+}
+
+#frm_contact ul {
+    padding-bottom: 10px;
+}
+
+#frm_contact ul:first-child {
+    padding-top: 10px;
+}
+
+#frm_contact li {
+    list-style-type: none;
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+}
+
+#frm_contact li:first-child {
+    width: 90px;
+    text-align: right;
+}
+
+#frm_contact input[type="text"] {
+    font: normal 10px Verdana, sans-serif;
+    height: 15px;
+   -moz-border-radius: 3px ;
+   -webkit-border-radius: 3px ;
+   border-radius: 3px ;
+}
+
+.country_dropdown {
+    font: normal 10px Verdana, sans-serif;
+   -moz-border-radius: 3px ;
+   -webkit-border-radius: 3px ;
+   border-radius: 3px ;
+}
+
+/* End Contact Form */
+
+/* Footer */
+
+#footer {
+    clear: both;
+    border-top: 1px solid #dddddd;
+    position: absolute;
+    bottom: 5px;
+    padding-top: 5px;
+    width: 954px;
+    text-align: center;
+    font: bold 10px Verdana, sans-serif;
+    color: #448;
+}
+
+#footer span {
+    font: bold 9px Verdana, sans-serif;
+}
+
+#footer a, #footer a:link, #footer a:visited, #footer a:hover {
+    font: bold 9px Verdana, sans-serif;
+    text-decoration: none;
+    color: #00F;
+}
+
+/* End Footer */
+
+.txt_fld {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 10px;
+   padding: 2px;
+   height: 16px;
+   width: 100px;
+   border: 1px solid #7F9DB9;
+   -moz-border-radius: 3px ;
+   -webkit-border-radius: 3px ;
+   border-radius: 3px ;
+}
+
+input:focus {
+   background-color: #DDE;
+}
+
+.pl_num {
+    width: 20px;
+    text-align: right;
+}
+
+.pl_cb {
+    width: 20px;
+    text-align: center;
+}
+
+.pl_title {
+    margin-left: 10px;
+    width: 500px;
+}
+
+.pl_menutitle {
+    margin-left: 10px;
+    width: 200px;
+}
+
+.pl_author{
+    width: 200px;
+}
+
+.pl_pointsto {
+    width: 450px;
+}
+
+.pl_subtext {
+    width: 350px;
+}
+
+.pl_submenus {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.pl_date {
+    width: 50px;
+}
+
+.pl_id {
+    width: 30px;
+    text-align: right;
+}
+
+.pl_edit {
+    width: 20px;
+    text-align: center;
+}
+
+.pl_del {
+    width: 20px;
+    text-align: center;
+}
+
+#pageedit {
+    clear: both;
+    margin: 40px 10px;
+    padding-top: 20px;
+    font: normal 11px Verdana, sans-serif;
+}
+
+#pagelist {
+    clear: both;
+    margin: 40px 10px;
+    padding-top: 20px;
+}
+
+#pagelist li, #pageedit li, #partsEdit li {
+    font: normal 11px Verdana, sans-serif;
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+}
+
+#pagelist ul:first-child, #pageedit ul:first-child {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #778;
+    margin-bottom: 10px;
+}
+
+#pagelist ul:first-child, li #pageedit ul:first-child li {
+    font: bold 11px Verdana, sans-serif;
+}
+
+#frm_cma_pagelist a, #frm_cma_pageedit a {
+    color: #000;
+    text-decoration: none;
+}
+
+#frm_cma_pagelist a:link, a:hover, a:visited, #frm_cma_pageedit a:link, a:hover, a:visited {
+    text-decoration: none;
+}
+
+input.text {
+    width: 400px;
+}
+
+#frm_cma_pageedit textarea {
+    margin-right: 10px;
+    width: 600px;
+	height:200px;
+}
+#frm_cma_pageedit_bred_box {
+    margin-right: 10px;
+    width: 860px;
+	height:110px;
+}
+#frm_cma_pageedit img {
+    margin-bottom: 5px;
+}
+
+.picListLI {
+    height: 200;
+    width: 500;
+}
+
+.txt_100 {
+    width: 100px;
+}
+
+.txt_200 {
+    width: 200px;
+}
+
+.txt_300 {
+    width: 300px;
+}
+
+.txt_400 {
+    width: 400px;
+	margin-bottom: 15px;
+}
+
+.txt_500 {
+    width: 500px;
+}
+
+.txt_600 {
+    width: 600px;
+}
+
+.field_heading {
+    font: bold 14px Verdana, sans-serif;
+    color: #0B0B61;
+}
+
+.float_left {
+      float: left;
+}
+
+.float_right {
+      float: right;
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.button {
+    border: 1px solid #006;
+    background: #DDE;
+    font-size: 12px;
+}
+
+.button:hover {
+    border: 1px solid #006;
+    background: #AAE;
+}
+
+fieldset {
+    margin: 20px 0;
+}
+legend {
+	background-color:#999;
+	color:#000;
+	padding:10px;
+	font-weight:bold;}
+#main_content, #top_section {
+    clear: both;
+}
+
+#top_picture, #top_right_picture {
+    width: 436px;
+    float: left;
+	height:470px;
+	background-color:#f2f2f0 ;}
+
+#top_right_picture, #center_right {
+    margin-left: 10px;
+}
+
+#title_chars, #seodesc_chars, #seokeywords_chars {
+    font: bold 11px Verdana, sans-serif;
+}
+
+.delIcon {
+    vertical-align: middle;
+}
+#offersList {
+    margin: 30px;
+}
+#offersList li{
+    list-style-type: decimal;
+    display: list-item;
+}
+
+#fsSparePartPics ul {
+    margin: 10px 0;
+}
+

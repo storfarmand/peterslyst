@@ -1,0 +1,14 @@
+{
+  "name": "peterslyst.com",
+  "version": "1.0.0",
+  "description": "peterslyst.com",
+  "main": "index.php",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Hummel",
+  "license": "GPL-3.0"
+}
