@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# project files containing security info
+site-config.php
