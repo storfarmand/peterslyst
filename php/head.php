@@ -1,8 +1,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="description" content="<?php echo $seo[$pageRequested][" desc "]; ?>">
-    <meta name="keywords" content="<?php echo $seo[$pageRequested][" keywords "]; ?>">
+    <meta name="description" content="<?php echo $seo[$pageRequested]["desc"]; ?>">
+    <meta name="keywords" content="<?php echo $seo[$pageRequested]["keywords"]; ?>">
     <title>
         <?php echo $seo[$pageRequested]["title"]; ?>
     </title>
