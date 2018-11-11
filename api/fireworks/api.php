@@ -7,8 +7,9 @@ $apiRequested = strlen(ltrim($_SERVER['REQUEST_URI'], "/api/v1/")) > 0 ? ltrim($
 //Site configuration
 require("../../site-config.php");
 require("../../php/pl-db-connect.php");
-require("../../php/pl-functions.php");
+require("../../royalfireworks/php/rf-functions.php");
 
+$catalog = json_encode(getCatalog());
 $value = array("first_name" => "John", "last_name" => "Hummel", "age" => 53);
 
 header("Cache-Control: no-cache, must-revalidate");

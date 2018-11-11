@@ -4,6 +4,7 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^/?(.*) https://%{HTTP_HOST}/$1 [R,L]
 RewriteBase /
 RewriteRule api/v1/(.*)$ api/v1/api.php?request=$1 [QSA,NC,L]
+RewriteRule api/fireworks/(.*)$ api/fireworks/api.php?request=$1 [QSA,NC,L]
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
