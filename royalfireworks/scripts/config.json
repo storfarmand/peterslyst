@@ -1,6 +1,6 @@
 {
 	"experienceId": "Peterslys Fyrværkeri",
-	"endpoint": "http://www.peterslyst.com/api/fireworks/api.php",
+	"endpoint": "https://www.peterslyst.com/api/fireworks/api.php",
 	"home": {
 		"bgColor": {
 			"on": "orange",

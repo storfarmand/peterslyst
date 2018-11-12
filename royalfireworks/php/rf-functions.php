@@ -7,7 +7,7 @@ function getCatalog() {
     if (!$productsRe){
         die($db->error);
     }
-    $productsRo = $productsRe->fetch_all();
+    $productsRo = $productsRe->fetch_all(MYSQLI_ASSOC);
     return $productsRo;
 }
 

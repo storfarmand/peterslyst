@@ -6,32 +6,46 @@ import ProductStore from '../stores/ProductStore';
 import * as CarttActions from '../actions/CartActions';
 import CartStore from '../stores/CartStore';
 
+import Product from './Product';
+
 export default class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      bgColor: true
+      products: []
     }
-  }
-  bgToggle() {
-    ProductActions.bgToggle();
   }
   componentWillMount() {
     ProductStore.on('product:bgtoggle', () => {
       this.setState({bgColor: !this.state.bgColor});
     });
   }
+  componentDidMount() {
+    fetch(this.props.config.endpoint,
+      {
+        mode: "cors"
+      })
+      .then(res => res.json()
+      .then(json => this.setState({products: json})));
+  }
+
   render() {
-    const homeStyles = {
-      backgroundColor: this.state.bgColor ? this.props.config.home.bgColor.on : this.props.config.home.bgColor.off
-    };
+    let products = [];
+    this.state.products.forEach(product => {
+      products.push(
+        <Product 
+          key={product.p_id} 
+          id={product.p_id} 
+          name={product.p_name}
+          desc={product.p_desc}
+          price={product.p_price}
+          active={product.p_active}/>)
+    });
+    console.log(products);
     return (
-      <div class={[
-        "home",
-        this.state.bgColor ? "bgColor-on" : "bgColor-off"
-      ].join(' ')} style={homeStyles}>
+      <div className="home">
         <h2>{this.props.constants.experienceId}</h2>
-        <button onClick={this.bgToggle.bind(this)}>Toggle background (Flux)</button>
+        {products}
       </div>
     );
   }

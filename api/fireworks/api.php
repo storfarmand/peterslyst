@@ -9,12 +9,12 @@ require("../../site-config.php");
 require("../../php/pl-db-connect.php");
 require("../../royalfireworks/php/rf-functions.php");
 
-$catalog = json_encode(getCatalog());
-$value = array("first_name" => "John", "last_name" => "Hummel", "age" => 53);
+$catalog = getCatalog();
 
 header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Content-Type: application/json");
-echo json_encode($value);
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+echo json_encode($catalog);
 
 ?>
