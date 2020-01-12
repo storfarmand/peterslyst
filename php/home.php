@@ -102,7 +102,9 @@ while($gridCRo = $gridCRe->fetch_object()) {
             <article class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
                 <div class="media">
                     <?php $gi = getContent("featureimg"); ?>
+                    <?php strlen(trim($gi->link)) > 0 ? "<a href=\"".$gi->link."\">" : "" ?>
                     <img src="gfx/<?php echo $gi->img; ?>" alt="<?php echo $gi->title; ?>" />
+                    <?php strlen(trim($gi->link)) > 0 ? "</a>" : "" ?>
                 </div>
             </article>
             <article class="col-lg-2 col-md-2 col-sm-4 col-xs-10">
