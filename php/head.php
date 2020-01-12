@@ -7,7 +7,7 @@
         <?php echo $seo[$pageRequested]["title"]; ?>
     </title>
     <base href="/">
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/css/main.min.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
             <script src="js/html5shiv.min.js"></script>
 	<![endif]-->

@@ -66,7 +66,9 @@ while($gridCRo = $gridCRe->fetch_object()) {
                 break;
             case "I":
                 echo "                <div class=\"media\">\n";  //decoration classes go here
+                if ($gridElement->isLinkable()) echo "<a href=\"".$gridElement->getLink()."\">\n";
                 echo "                    <img src=\"".$site_media_base . $gridElement->getIdx() . '/' . $gridElement->getImg()."\" alt=\"".$gridElement->getTitle()."\"\n";
+                if ($gridElement->isLinkable()) echo "</a>\n";
                 echo "                </div>\n";
                 break;
             case "R":
