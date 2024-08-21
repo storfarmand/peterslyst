@@ -10,45 +10,48 @@ require('classes/pla-cat.class.php');
 require('classes/pla-item.class.php');
 require('pla-db-connect.php');
 
+$response = $_REQUEST['action'];
+
 if (isset($_REQUEST['action'])) {
     switch ($_REQUEST['action']) {
 
 /***** START - Product Handling *****/        
         
-        case "getProduct" :
-            $p_id = $_REQUEST["p_id"];
-            $productDetail = array();
-            $productDetail["p_id"] = $p_id;
-            $prodQ = "
-                    SELECT * FROM jes_products
-                    WHERE p_id=$p_id
-                    ";
-            $prodRe = $db->query($prodQ);
-            if(!$prodRe) { die("Fatal error retrieving PICs, SQL: ". $prodQ); }
-            $prodRo = $prodRe->fetch_object();
-            $productDetail["p_model"]  = $prodRo->p_model;
-            $productDetail["p_title"]  = $prodRo->p_title;
-            $productDetail["p_text"]   = $prodRo->p_text;
-            $productDetail["p_pic"]    = $prodRo->p_pic;
-            $productDetail["p_pdf"]    = $prodRo->p_pdf;
-            $productDetail["p_active"] = $prodRo->p_active;
-            $response =  json_encode($productDetail);
+        case "getElement" :
+            $GEid = $_REQUEST["GEid"];
+            $GEDetail = array();
+            $GEDetail["GEid"] = $GEid;
+            $GEQ = "
+                    SELECT * FROM gridelements
+                    WHERE name=\"$GEid\"
+                    ";         
+            $GERe = $db->query($GEQ);
+            if(!$GERe) { die("Fatal error retrieving grid element details, SQL: ". $GEQ); }
+            $GERo = $GERe->fetch_object();
+            $GEDetail["title"]  = $GERo->title;
+            $GEDetail["desc"]  = $GERo->desc;
+            $GEDetail["img"]   = $GERo->img;
+            $GEDetail["containeridx"]   = $GERo->containeridx;
+            $GEDetail["location"]   = $GERo->location;
+            $GEDetail["size"]   = $GERo->size;
+            $GEDetail["decorations"]   = $GERo->decorations;
+            $GEDetail["footer"]   = $GERo->footer;
+            $response =  json_encode($GEDetail);
             break;
 
-        case "saveProduct" :
-            $p_id = $_REQUEST["p_id"];
-            $p_model = addslashes($_REQUEST["p_model"]);
-            $p_title = addslashes($_REQUEST["p_title"]);
-            $p_text = addslashes($_REQUEST["p_text"]);
-            $p_active = $_REQUEST["p_active"];
-            $prodU = "
-                    UPDATE jes_products
-                        SET p_model='$p_model', p_title='$p_title', p_text='$p_text', p_active='$p_active'
-                        WHERE p_id=$p_id;
+        case "saveGE" :
+            $GEid = $_REQUEST["GEid"];
+            $title = addslashes($_REQUEST["title"]);
+            $desc = addslashes($_REQUEST["desc"]);
+            $GEU = "
+                    UPDATE gridelements ge
+                        SET ge.title='$title', ge.desc='$desc'
+                        WHERE ge.name='$GEid';
                     ";
-            $db->query($prodU);
+
+            $db->query($GEU);
             if(!$db) {
-                echo "Fejl saving product info: $prodU";
+                echo "Fejl saving product info: $GEU";
                 exit;
             }
             $response = "Indholdet er gemt";

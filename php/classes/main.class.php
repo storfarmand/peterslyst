@@ -8,6 +8,7 @@ class main {
     private $bizTele;
     private $bizEmail;
     private $bizCVR;
+    private $db;
     
     public function getBizName() {
         return $this->bizName;
@@ -80,13 +81,13 @@ class main {
             die($this->db->error);
         }
         $record = $result->fetch_object();
-        $this->bizName    = $record->biz_name;
-        $this->bizAddress = $record->biz_address;
-        $this->bizCity = $record->biz_city;
-        $this->bizZip = $record->biz_zip;
-        $this->bizTele = $record->biz_tele;
-        $this->bizEmail = $record->biz_email;
-        $this->bizCVR = $record->biz_cvr;
+        $this->bizName      = $record->biz_name;
+        $this->bizAddress   = $record->biz_address;
+        $this->bizCity      = $record->biz_city;
+        $this->bizZip       = $record->biz_zip;
+        $this->bizTele      = $record->biz_tele;
+        $this->bizEmail     = $record->biz_email;
+        $this->bizCVR       = $record->biz_cvr;
     }
     
 }

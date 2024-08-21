@@ -4,20 +4,13 @@
     $(function() {
 
         tinyMCE.init({
-            mode : "exact",
-            elements : "taProductText",
-            theme : "advanced",
+            license_key: 'gpl',
+            selector : "#taGEDesc",
+            skin: 'oxide-dark',
+            content_css: "dark",
             width : "600",
-            height : "200",
-            inline_styles : true,
-            theme_advanced_disable : "styleselect,outdent,indent,image,cleanup,help,code,removeformat,charmap,visualaid,sub,sup,charmap",
-            theme_advanced_buttons1 : "bold,italic,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,formatselect,|,link,unlink,anchor,|,undo,redo",
-            theme_advanced_buttons2 : "",
-            theme_advanced_buttons3 : "",
-            theme_advanced_buttons4 : "",
-            theme_advanced_toolbar_location : "top",
-            theme_advanced_toolbar_align : "left"
-
+            height : "400",
+            inline_styles : true
         });
 
         var navEle = $('#navcontainer');
@@ -28,24 +21,27 @@
             navList.toggleClass('show');
         });
 
-        $("#selProduct").bind('change', function() {
-            var p_id = $(this).val();
-            if(p_id < 0) {
-                $("#txtProductModel").val("");
-                $("#txtProductTitle").val("");
-                var taProductText = tinyMCE.get('taProductText');
-                taProductText.setContent("");
+        $("#selElement").bind('change', function() {
+            var GE_id = $(this).val();
+            if(GE_id < 0) {
+                $("#txtGEName").val("");
+                $("#txtGETitle").val("");
+                var taGEDesc = tinymce.get('taGEDesc');
+                taGEDesc.setContent("");
+/*
                 var picURL = site_base + "_products/emptyProduct.png";
                 $("#productPicPreview img").attr({'src': picURL});
                 var pdfURL = site_base + "_products/emptyProduct.pdf";
                 $("#productPDFPreview").empty();
                 var productPDF = new PDFObject({url: pdfURL}).embed("productPDFPreview");
+*/
             }
-            $.getJSON(cms_launch+"php/jea-ajax-functions.php?action=getProduct&p_id="+p_id, function (productData) {
-                $("#txtProductModel").val(productData.p_model);
-                $("#txtProductTitle").val(productData.p_title);
-                var taProductText = tinyMCE.get('taProductText');
-                taProductText.setContent((typeof productData.p_text != null) ? productData.p_text : "");
+            $.getJSON(cms_launch+"php/pla-ajax-functions.php?action=getElement&GEid="+GE_id, function (eleData) {
+                $("#txtGEName").val(eleData.GEid);
+                $("#txtGETitle").val(eleData.title);
+                var taGEDesc = tinymce.get('taGEDesc');
+                taGEDesc.setContent((typeof eleData.desc != null) ? eleData.desc : "");
+/*
                 if(productData.p_active == "Y") $("#cbProductActive").attr('checked', 'checked')
                 else $("#cbProductActive").removeAttr('checked')
                 var picURL = site_base + "_products/" + productData.p_pic;
@@ -53,20 +49,19 @@
                 var pdfURL = site_base + "_products/" + productData.p_pdf;
                 $("#productPDFPreview").empty();
                 var productPDF = new PDFObject({url: pdfURL}).embed("productPDFPreview");
+*/
             });
         });
         
-        $("#pbSaveProduct").bind('click', function(e) {
+        $("#pbSaveGE").bind('click', function(e) {
             e.preventDefault();
             var qString = {};
-            var p_id = qString.p_id = $("#selProduct").val();
-            if (p_id < 0) return;
-            qString.p_model  = $("#txtProductModel").val();
-            qString.p_title  = $("#txtProductTitle").val();
-            var taProductText = tinyMCE.get('taProductText');
-            qString.p_text  = taProductText.getContent();
-            qString.p_active = ($("#cbProductActive").attr("checked") == "checked") ? 'Y' : 'N';
-            $.post(cms_launch+"php/jea-ajax-functions.php?action=saveProduct", qString, function (theResult) {
+            var GE_id = qString.GEid = $("#selElement").val();
+            if (GE_id < 0) return;
+            qString.title  = $("#txtGETitle").val();
+            var taGEDesc = tinyMCE.get('taGEDesc');
+            qString.desc  = taGEDesc.getContent();
+            $.post(cms_launch+"php/pla-ajax-functions.php?action=saveGE", qString, function (theResult) {
                 $.blockUI({
                     message: theResult,
                     fadeIn: 2000,
@@ -111,7 +106,7 @@
                 var response = $.parseJSON(xhr.responseText);
                 status.html((response.code == "0" ? "Upload fuldført" : "Upload fejl"));
                 var p_id = $("#selProduct").val();
-                $.getJSON(cms_launch+"php/jea-ajax-functions.php?action=getProduct&p_id="+p_id, function (productData) {
+                $.getJSON(cms_launch+"php/pla-ajax-functions.php?action=getProduct&p_id="+p_id, function (productData) {
                     var picURL = site_base + "_products/" + productData.p_pic + "?" + Math.random();
                     $("#productPicPreview img").attr({'src': picURL});
                     var pdfURL = site_base + "_products/" + productData.p_pdf;
@@ -133,7 +128,7 @@
                 return;
             }
             var p_model = $("#txtProductModel").val();
-            $.getJSON(cms_launch+"php/jea-ajax-functions.php?action=newProduct&p_model=" + p_model, function (productData) {
+            $.getJSON(cms_launch+"php/pla-ajax-functions.php?action=newProduct&p_model=" + p_model, function (productData) {
                 $("#selProduct").append($("<option>").val(productData.p_id).html(productData.p_model)).val(productData.p_id);
                 var message = "Produkt " + productData.p_model + " blev tilføjet";
                 $.blockUI({
@@ -163,7 +158,7 @@
                 return;
             }
             var p_id = $("#selProduct").val();
-            $.getJSON(cms_launch+"php/jea-ajax-functions.php?action=delProduct&p_id=" + p_id, function (productData) {
+            $.getJSON(cms_launch+"php/pla-ajax-functions.php?action=delProduct&p_id=" + p_id, function (productData) {
                 $("#selProduct option[value='"+p_id+"']").remove();
                 $("#txtProductModel").val("");
                 $("#txtProductTitle").val("");
@@ -210,7 +205,7 @@
                 var response = xhr.responseText;
                 status.html((response.code == "0" ? "Upload fuldført" : "Upload fejl"));
                 status.html(xhr.responseText);
-                $.getJSON(cms_launch+"php/jea-ajax-functions.php?action=getCampaign", function (campaignData) {
+                $.getJSON(cms_launch+"php/pla-ajax-functions.php?action=getCampaign", function (campaignData) {
                     var picURL = site_base + "_kampagne/" + campaignData.c_pic + "?" + Math.random();
                     $("#campaignPicPreview img").attr({'src': picURL});
                     var pdfURL = site_base + "_kampagne/" + campaignData.c_pdf;
@@ -228,7 +223,7 @@
             qString.bz_zipcity = $("#txtFZipCity").val();
             qString.bz_tele    = $("#txtFTele").val();
             qString.bz_email   = $("#txtFEmail").val();
-            $.post(cms_launch+"php/jea-ajax-functions.php?action=saveFInfo", qString, function (theResult) {
+            $.post(cms_launch+"php/pla-ajax-functions.php?action=saveFInfo", qString, function (theResult) {
                 $.blockUI({
                     message: theResult,
                     fadeIn: 2000,

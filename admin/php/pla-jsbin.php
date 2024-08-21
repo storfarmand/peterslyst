@@ -5,8 +5,8 @@
 <?php if(isset($action_status)) echo "var action_status='$action_status';\n"; ?>
 </script>
 <script type="text/javascript" src="js/pla-global.js"></script>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
 <script type="text/javascript" src="js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/jquery.validationEngine-en.js"></script>

@@ -1,42 +1,59 @@
 <div class="content container">
     <form class="content-details" name="frm_content_details" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        Vælg produkt:
-        <select id="selPage">
+        Vælg container element:
+        <select id="selElement" name="selElement">
             <option value="-1">&nbsp</option>
     <?php
-    /*
-        $prodQ = "select p_id, p_model from jes_products order by p_model";
-        $prodRe = $db->query($prodQ);
-        while ($prodRo = $prodRe->fetch_object()) {
-            echo "        <option value=\"".$prodRo->p_id."\">".$prodRo->p_model."</option>\n";
+
+        global $db;
+        $geQ = "SELECT ge.name, ge.title, ge.desc, ge.img, ge.location, ge.size, ge.decorations, ge.footer FROM gridelements ge ORDER BY ge.name";
+        $geRe = $db->query($geQ);
+        while ($geRo = $geRe->fetch_object()) {
+            echo "        <option value=\"".$geRo->name."\">".$geRo->name."</option>\n";
         }
-    */
+
     ?>
         </select>
-        <input class="del-page" name="pbDelPage" type="button" value="Slet" class="button" />
+        <input class="del-element" name="pbDelElement" type="button" value="Slet" class="button" />
         <fieldset class="page-detail">
-            <legend>Side indhold</legend>
+            <legend>Element indhold</legend>
             <div class="form-group">
-                <label for="txtProductModel">Navn</label>
-                <input type="input" class="form-control" id="txtProductModel" placeholder="Produkt model" value="">
+                <label for="txtGEName">Navn:</label>
+                <input type="input" class="form-control" id="txtGEName" placeholder="Element navn" value="">
             </div>
             <ul>
-                <li>Side titel</li>
-                <li><input name="txtProductModel" type="input" /> <button type="submit" class="btn btn-primary" id="pbNewPage" name="pbNewPage">Tilføj ny</button></li>
+                <li>Heading:</li>
+                <li><input id="txtGETitle" name="txtGETitle" type="input" /> <button type="submit" class="btn btn-primary" id="pbNewElement" name="pbNewElement">Tilføj ny element</button></li>
             </ul>
             <ul>
-                <li>Titel:</li>
-                <li><input name="txtProductTitle" type="input" /></li>
+                <li>Indhold:</li>
+                <li><textarea id="taGEDesc" name="taGEDesc" /></textarea>
             </ul>
             <ul>
-                <li>Beskrivelse:</li>
-                <li><textarea name="taProductText" /></textarea>
+                <li>Placering:</li>
+                <li><textarea id="selGELocation" name="selGELocation" /></textarea>
             </ul>
             <ul>
-                <li></li>
-                <li><input name="cbProductActive" type="checkbox" /> Aktiv</li>
+                <li>
+                    <label for="selGESize">Størrelse:</label>
+                    <select id="selGESize" name="selGESize">
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                    </select>
+                </li>
             </ul>
-            <button type="submit" class="btn btn-primary" id="pbSaveCInfo" name="pbSaveCInfo">Gem ændringer</button>
+            <ul>
+                <li>
+                    <label for="selGEBackground">Baggrund:</label>
+                    <select id="selGEBackground" name="selGEBackground">
+                        <option value="S">Small</option>
+                        <option value="C">Chalkboard</option>
+                        <option value="D">Dirt</option>
+                    </select>
+                </li>
+            </ul>
+            <button type="submit" class="btn btn-primary" id="pbSaveGE" name="pbSaveGE">Gem ændringer</button>
         </fieldset>
     </form>
 

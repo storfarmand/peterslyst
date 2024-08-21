@@ -1,5 +1,16 @@
 <?php
 
+function getContent($name) {
+    global $db;
+    $gridIQ = "select * from gridelements where name=\"$name\"";
+    $gridIRe = $db->query($gridIQ);
+    if (!$gridIRe){
+        die($db->error);
+    }
+    $gridIRo = $gridIRe->fetch_object();
+    return $gridIRo;
+}
+
 function form2PageObj () {
 
     global $nPage, $allowedTags;
